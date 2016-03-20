@@ -1,15 +1,14 @@
-import {Page,EventEmitter} from 'ionic-angular';
-import {ORM} from './ORM';
-
+import {Page, NavController, NavParams} from 'ionic-angular';
 
 @Page({
   templateUrl: 'build/pages/home/home.html'
 })
 export class HomePage {
-  constructor(){
-    this._ORM = new ORM();
-    this._ORM.select({
-      table:"config"
-    })
+  static get parameters() {
+    return [[NavController]];
   }
+  constructor(nav){
+    this.nav = nav;
+  }
+
 }

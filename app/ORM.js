@@ -51,15 +51,9 @@ export class ORM {
           console.error(err);
         });
   }
-  select(data, callback){
+  select(data){
     if(data.table){
-      this.storage.query("SELECT " + data.table + " FROM").then((data)=>{
-        
-      },(err)=>{
-        if(callback){
-          callback(true, err);
-        }
-      })
+      return this.storage.query("SELECT * FROM " + data.table )
     }
   }
 
